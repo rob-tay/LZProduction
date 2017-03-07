@@ -76,7 +76,20 @@ $(document).ready(function() {
                      $("#reduction_version").selectpicker("refresh");
                    }
   });
-
+  $.ajax({url: "/appversion/DER",
+          type: "GET",
+          success: function(result) {
+                     $("#der_version").html(result);
+                     $("#der_version").selectpicker("refresh");
+                   }
+  });
+  $.ajax({url: "/appversion/LZap",
+          type: "GET",
+          success: function(result) {
+                     $("#lzap_version").html(result);
+                     $("#lzap_version").selectpicker("refresh");
+                   }
+  });
   $("#tags").change(function() {
     $.ajax({url: "/tags",
             type: "GET",
@@ -293,7 +306,7 @@ $(document).ready(function() {
 		    <input type="checkbox" class="toggle togglable" id="reduct_lfn_toggle" toggle="reduct_toggle">
 		    <span class="glyphicon glyphicon-cloud-download"></span>
 		  </span>
-		  <input type="text" class="form-control togglable" placeholder="LFN" toggle="reduct_lfn_toggle" disabled>
+		  <input name="reduction_input" type="text" class="form-control togglable" placeholder="LFN" toggle="reduct_lfn_toggle" disabled>
 		</div>
 	      </div>
 
@@ -317,7 +330,7 @@ $(document).ready(function() {
 		    <input type="checkbox" class="toggle togglable" id="der_lfn_toggle" toggle="der_toggle" disabled>
 		    <span class="glyphicon glyphicon-cloud-download"></span>
 		  </span>
-		  <input type="text" class="form-control togglable" toggle="der_lfn_toggle" placeholder="LFN" disabled>
+		  <input name="der_input" type="text" class="form-control togglable" toggle="der_lfn_toggle" placeholder="LFN" disabled>
 		</div>
 	      </div>
 
@@ -339,7 +352,7 @@ $(document).ready(function() {
 		    <input type="checkbox" class="toggle togglable" id="lzap_lfn_toggle" toggle="lzap_toggle" disabled>
 		    <span class="glyphicon glyphicon-cloud-download"></span>
 		  </span>
-		  <input type="text" class="form-control togglable" placeholder="LFN" toggle="lzap_lfn_toggle" disabled>
+		  <input name="lzap_input" type="text" class="form-control togglable" placeholder="LFN" toggle="lzap_lfn_toggle" disabled>
 		</div>
 	      </div>
 	    </div>
