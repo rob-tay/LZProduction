@@ -56,9 +56,12 @@ $(document).ready(function() {
     selectbox.val("");
     selectbox.prop("disabled", !this.checked);
     selectbox.selectpicker("refresh");
-    $(".toggle[toggle='%toggleid%']:checked".replace("%toggleid%", this.id)).trigger("click");
+//    $(".toggle[toggle='%toggleid%']:checked".replace("%toggleid%", this.id)).trigger("click");
     var togglable = $(".togglable[toggle='%toggleid%']".replace("%toggleid%", this.id));
     togglable.prop("disabled", !this.checked);
+    var togglable_hidden = $(".togglable_hidden[toggle='%toggleid%']".replace("%toggleid%", this.id));
+    togglable_hidden.prop("disabled", !this.checked);
+    togglable_hidden.toggle();
   })
 
   $.ajax({url: "/tags",
@@ -271,7 +274,7 @@ $(document).ready(function() {
 		    <input type="checkbox" class="toggle" id="sim_toggle" checked><span>Simulation</span>
 		  </label>
 		</div>
-		<label for="app">Select Simulation Application:</label>
+		<label for="app">Simulation Application:</label>
 		<div class="input-group">
 		  <select id="app" name="app" class="selectpicker form-control" data-live-search="true" data-live-search-style="startsWith" data-size="10" data-width="150px" data-dropup-auto="false" data-live-search-placeholder="Search..." title="Application" toggle="sim_toggle" required>
 		    <option>LUXSim</option>
@@ -279,7 +282,7 @@ $(document).ready(function() {
 		  </select>
 		</div>
 
-		<label for="luxsim_version">Select Simulation Version:</label>
+		<label for="luxsim_version">Simulation Version:</label>
 		<div class="input-group">
 		  <select id="app_version" name="app_version" class="selectpicker form-control" data-live-search="true" data-live-search-style="startsWith" data-size="10" data-width="150px" data-dropup-auto="false" data-live-search-placeholder="Search..." title="Version" toggle="sim_toggle" required>
 		  </select>
@@ -360,7 +363,7 @@ $(document).ready(function() {
 
 	  <!-- Macro Setup-->
 	  <br>
-	  <fieldset>
+	  <fieldset class="togglable_hidden" toggle="sim_toggle">
 	    <legend>Request Macro Information</legend>
 
 	    <br>
