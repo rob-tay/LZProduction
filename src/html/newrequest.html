@@ -39,6 +39,7 @@ $(document).ready(function() {
                    app: $("#app").val()},
             success: function(result) {
                        $("#macros").html(result);
+                       $("#macros").selectpicker("refresh");
                        $("#macros").prop("disabled", false);
                      }
             });
