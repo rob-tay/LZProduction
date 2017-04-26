@@ -39,8 +39,8 @@ $(document).ready(function() {
                    app: $("#app").val()},
             success: function(result) {
                        $("#macros").html(result);
-                       $("#macros").selectpicker("refresh");
                        $("#macros").prop("disabled", false);
+                       $("#macros").selectpicker("refresh");
                      }
             });
   });
@@ -74,6 +74,7 @@ $(document).ready(function() {
                        app: $(this).val()},
                 success: function(result) {
                            $("#macros").html(result);
+                           $("#macros").selectpicker("refresh");
                          }
                 });
     }
